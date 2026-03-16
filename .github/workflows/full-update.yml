@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get source code from master
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         ref: master
         path: master
 
     - name: Get source code from adlist-maker
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         ref: adlist-maker
         path: adlist-maker
@@ -57,13 +57,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get source code from master
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         ref: master
         path: master
 
     - name: Get source code from website
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         token: ${{ secrets.PERSON_TOKEN }}
         repository: privacy-protection-tools/anti-ad.github.io
@@ -78,7 +78,7 @@ jobs:
         sudo chmod a+r /etc/apt/keyrings/sagernet.asc
         echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/sagernet.asc] https://deb.sagernet.org/ * *" | sudo tee /etc/apt/sources.list.d/sagernet.list > /dev/null
         sudo apt-get update
-        sudo apt-get install sing-box=1.12.23
+        sudo apt-get install sing-box
 
     - name: Install mihomo
       env:
